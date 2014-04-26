@@ -1,5 +1,7 @@
 <?php
 include "template/cabecalho.php";
+
+// Funções básicas do sistema
 include "base.php";
 ?>
 
