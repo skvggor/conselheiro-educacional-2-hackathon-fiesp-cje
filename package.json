@@ -1,0 +1,20 @@
+{
+  "name": "conselheiroeducacional-2-hackathon-fiesp-cje",
+  "description": "Aplicativo web 'Conselheiro Educacional' criado durante o Hackathon da FIESP-CJE",
+  "author": "Equipe Op3n Educ4tion",
+  "version": "0.0.1",
+  "homepage": "https://github.com/marcker/conselheiro-educacional-2-hackathon-fiesp-cje",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-coffeelint": "~0.0.10",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-yui-compressor": "~0.3.3",
+    "grunt-contrib-sass": "~0.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcker/conselheiro-educacional-2-hackathon-fiesp-cje.git"
+  }
+}
