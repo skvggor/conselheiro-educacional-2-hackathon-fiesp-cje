@@ -17,4 +17,21 @@ function selecionarDados()
   $db -> select($tabela, $campo, '', $where);
   return $db -> getResult();
 }
+
+function inserirAluno() {
+  $db = new Database();
+  $db -> connect();
+
+  $db -> insert('sys_alunos', array(
+      'sal_nome_completo' => 'Marcos Garcia de Lima',
+      'sal_nome_mae' => 'Alice Garcia de Lima',
+      'sal_nome_pai' => 'Daniel de Lima',
+      'sal_login' => 'marcos.garcia',
+      'sal_senha' => 'marcos12',
+      'sal_rg' => '42882424X',
+      'sal_cpf' => '32456798765',
+      'fk_sys_alunos_analises_cognitivas_evidenciais' => 1)
+  );
+}
+
 ?>

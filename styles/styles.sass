@@ -2,8 +2,80 @@
 @import "cores.sass"
 @import "tipografia.sass"
 
-*
-  outline: 0
+html
+  width: 400px
+  position: absolute
 
-body
-  // background: $vermelho
+.ui-mobile-viewport
+  font-family: Arial, sans-serif
+
+  #home,
+  #painel-bebe,
+  #painel-crianca,
+  #painel-adulto
+
+    .ui-header
+      background: $laranja
+      text-shadow: none
+      color: $branco
+      font-size: 30px
+
+    .formulario-cadastro,
+    .menu
+      padding: 10px
+
+      .ui-header
+        font-size: 18px !important
+        border-radius: 10px 10px 0 0
+
+      .ui-input-text
+        margin-top: -2px
+        margin-bottom: 0
+        height: 45px
+        border-radius: 0 0 5px 5px !important
+        font-size: 20px
+        box-shadow: none
+
+      .ui-btn
+        background: $laranja
+        text-shadow: none
+        color: $branco
+
+      .ui-btn:hover
+        background: transparentize($laranja, 0.2)
+
+    .logotipo-app
+      width: 193px
+      height: 312px
+      margin: 0 auto
+      padding: 5px
+      background: url("../imagens/logotipo-app.png") no-repeat
+
+  #painel-bebe,
+  #painel-crianca,
+  #painel-adulto
+    .ui-header
+      font-size: 14px
+
+    .bebe,
+    .crianca,
+    .adulto
+      background: $cinza url("../imagens/primeiro-ciclo.png") 100% 100% no-repeat
+      background-size: 50% 50%
+
+      a
+        background: $azul !important
+
+      a:last-child
+        margin-bottom: 175px
+
+      a:hover
+        background: transparentize($azul, 0.2) !important
+
+    .crianca
+      background: $cinza url("../imagens/segundo-ciclo.png") 100% 100% no-repeat
+      background-size: 100% 50%
+
+    .adulto
+      background: $cinza url("../imagens/terceiro-ciclo.png") 100% 100% no-repeat
+      background-size: 50% 50%
