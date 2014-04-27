@@ -6,11 +6,14 @@ include "base.php";
 
 // Alimenta seção 'Meus Dados'
 $meusDados = obterMeusDados();
+$analises = obterAnalises();
+$ocorrencias = obterOcorrencias();
+
 ?>
   <!-- HOME -->
   <section data-role="page" id="home">
     <section data-role="header" class="header">
-      <h1>Vocali</h1>
+      <h1>Vocare</h1>
     </section>
 
     <section class="formulario-cadastro">
@@ -95,7 +98,7 @@ $meusDados = obterMeusDados();
         <?php echo $meusDados[0]["sal_nome_completo"]; ?>
       </section>
 
-      <section class="faltas">
+      <section class="rg">
         <span>R.G.:</span> <?php echo $meusDados[0]["sal_rg"]; ?>
       </section>
     </section>
@@ -118,8 +121,7 @@ $meusDados = obterMeusDados();
           $total = count($meusDados);
 
           if (isset($total) && $total > 0) {
-            for ($i = 0; $i <= $total; $i += 1) { ?>
-              </tr>
+            for ($i = 0; $i <= 8; $i += 1) { ?>
               <tr>
                 <td><?php echo $meusDados[$i]["smt_materia"]; ?></td>
                 <td><?php echo $meusDados[$i]["san_nota"]; ?></td>
@@ -138,6 +140,100 @@ $meusDados = obterMeusDados();
 
   </section>
   <!-- MEUS DADOS-->
+
+  <!-- ANÁLISES -->
+  <section data-role="page" id="analises">
+    <section data-role="header" class="header">
+      <h1>
+        <?php echo $analises[0]["sis_razao_social"]; ?>
+      </h1>
+    </section>
+
+    <section class="dados-pessoa">
+      <section class="nome">
+        <?php echo $analises[0]["sal_nome_completo"]; ?>
+      </section>
+
+      <section class="nome-mae">
+        <span>Mãe:</span> <?php echo $analises[0]["sal_nome_mae"]; ?>
+      </section>
+    </section>
+
+    <section class="tabela-escolar">
+      <table id="tabela-escolar"
+             data-role="table"
+             data-mode="columntoggle"
+             class="ui-responsive">
+        <thead>
+          <tr>
+            <th>Perfil</th>
+            <th>Descrição completa</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><?php echo $analises[0]["sac_titulo"]; ?></td>
+            <td><?php echo $analises[0]["sac_descricao_completa"]; ?></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </section>
+
+    <section data-role="footer" class="footer">
+      <a href="#painel-bebe" data-transition="pop" data-role="button" data-icon="arrow-l">Voltar</a>
+    </section>
+
+  </section>
+  <!-- end ANÁLISES-->
+
+  <!-- OCORRÊNCIAS -->
+  <section data-role="page" id="ocorrencias">
+    <section data-role="header" class="header">
+      <h1>Ocorrências</h1>
+    </section>
+
+    <section class="dados-pessoa">
+      <section class="nome">
+        <?php echo $ocorrencias[0]["sal_nome_completo"]; ?>
+      </section>
+    </section>
+
+    <section class="tabela-escolar">
+      <table id="tabela-escolar"
+             data-role="table"
+             data-mode="columntoggle"
+             class="ui-responsive">
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th>Relatório resumido</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+
+        <?php
+        $total = count($ocorrencias);
+
+        if (isset($total) && $total > 0) {
+          for ($i = 0; $i <= $total; $i += 1) { ?>
+            <tr>
+              <td><?php echo $ocorrencias[$i]["sco_descricao"]; ?></td>
+              <td><?php echo $ocorrencias[$i]["sre_descricao"]; ?></td>
+              <td><?php echo $ocorrencias[$i]["sre_data"]; ?></td>
+            </tr>
+          <?php } ?>
+        <?php } ?>
+
+      </table>
+    </section>
+    <section data-role="footer" class="footer">
+      <a href="#painel-bebe" data-transition="pop" data-role="button" data-icon="arrow-l">Voltar</a>
+    </section>
+
+  </section>
+  <!-- OCORRÊNCIAS -->
   <!-- //////////////////////////// end PÁGINAS INTERNAS //////////////////////////// -->
 
 <?php include "template/rodape.php"; ?>
