@@ -21,8 +21,7 @@ function obterMeusDados()
            on fk_sys_alunos = sal_id_aluno
            inner join sys_materias on fk_sys_materias = smt_id_materia
            inner join sys_instituicoes on fk_sys_instituicoes = sis_id_instituicao";
-  $where = "fk_sys_alunos = 1 
-            and fk_sys_series = 1";
+  $where = "fk_sys_alunos = " . $_GET["id"] . " and fk_sys_series = 1;";
 
   $db -> select($tabela, $campo, $join, $where);
   return $db -> getResult();
@@ -43,7 +42,7 @@ function obterAnalises()
            on fk_sys_alunos = sal_id_aluno
            inner join sys_analises_tipos on fk_sys_analises_tipos = sat_id_analise
            inner join sys_instituicoes on fk_sys_instituicoes = sis_id_instituicao";
-  $where = "fk_sys_alunos = 1 limit 10";
+  $where = "fk_sys_alunos = " . $_GET["id"] . " limit 10;";
 
   $db -> select($tabela, $campo, $join, $where);
   return $db -> getResult();
@@ -66,7 +65,7 @@ function obterOcorrencias()
   $join = "sys_alunos
            on fk_sys_alunos = sal_id_aluno
            inner join sys_categoria_ocorrencias on fk_sys_categoria_ocorrencias = sco_id_ocorrencia";
-  $where = "fk_sys_alunos = 1;";
+  $where = "fk_sys_alunos = " . $_GET["id"] . ";";
 
   $db -> select($tabela, $campo, $join, $where);
   return $db -> getResult();
