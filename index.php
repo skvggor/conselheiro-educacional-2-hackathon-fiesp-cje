@@ -3,6 +3,9 @@ include "template/cabecalho.php";
 
 // Funções básicas do sistema
 include "base.php";
+
+// Alimenta seção 'Meus Dados'
+$meusDados = obterMeusDados();
 ?>
   <!-- HOME -->
   <section data-role="page" id="home">
@@ -20,12 +23,6 @@ include "base.php";
     </section>
     <section class="logotipo-app"></section>
     <section data-role="footer" class="footer"></section>
-    <!-- <p>
-      <?php
-        //$dados = selecionarDados();
-        //echo $dados[0]["campo_table"];
-      ?>
-    </p> -->
   </section>
   <!-- end HOME -->
 
@@ -83,5 +80,64 @@ include "base.php";
     <section data-role="footer" class="footer"></section>
   </section>
   <!-- end PAINEL ADULTO-->
+
+  <!-- /////////////////////////////// PÁGINAS INTERNAS /////////////////////////////// -->
+  <!-- MEUS DADOS -->
+  <section data-role="page" id="meus-dados">
+    <section data-role="header" class="header">
+      <h1>
+        <?php echo $meusDados[0]["sis_razao_social"]; ?>
+      </h1>
+    </section>
+
+    <section class="dados-pessoa">
+      <section class="nome">
+        <?php echo $meusDados[0]["sal_nome_completo"]; ?>
+      </section>
+
+      <section class="faltas">
+        <span>R.G.:</span> <?php echo $meusDados[0]["sal_rg"]; ?>
+      </section>
+    </section>
+
+    <section class="tabela-escolar">
+      <table id="tabela-escolar"
+             data-role="table"
+             data-mode="columntoggle"
+             class="ui-responsive">
+        <thead>
+          <tr>
+            <th>Matérias</th>
+            <th>Notas</th>
+            <th>Faltas</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <?php
+          $total = count($meusDados);
+
+          if (isset($total) && $total > 0) {
+            for ($i = 0; $i <= $total; $i += 1) { ?>
+              </tr>
+              <tr>
+                <td><?php echo $meusDados[$i]["smt_materia"]; ?></td>
+                <td><?php echo $meusDados[$i]["san_nota"]; ?></td>
+                <td><?php echo $meusDados[$i]["san_faltas"]; ?></td>
+              </tr>
+            <?php } ?>
+          <?php } ?>
+        </tbody>
+
+      </table>
+    </section>
+
+    <section data-role="footer" class="footer">
+      <a href="#painel-bebe" data-transition="pop" data-role="button" data-icon="arrow-l">Voltar</a>
+    </section>
+
+  </section>
+  <!-- MEUS DADOS-->
+  <!-- //////////////////////////// end PÁGINAS INTERNAS //////////////////////////// -->
 
 <?php include "template/rodape.php"; ?>
