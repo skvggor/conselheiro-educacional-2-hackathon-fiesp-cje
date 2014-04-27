@@ -1,10 +1,4 @@
 <?php
-
-// Somente para teste (na apresentação do projeto)
-$_GLOBALS['usuario'] = $_GET['id'];
-
-echo $_GLOBALS['usuario'];
-
 include "template/cabecalho.php";
 
 // Funções básicas do sistema
